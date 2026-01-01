@@ -1,0 +1,28 @@
+#include <opencv2/opencv.hpp>
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+int main() {
+    string imagePath;
+
+    cout << "Resim dosya yolunu giriniz: ";
+    getline(cin, imagePath);
+
+    Mat image = imread(imagePath);
+
+    if (image.empty()) {
+        cout << "Resim yuklenemedi!" << endl;
+        return -1;
+    }
+
+    namedWindow("Resim Goruntuleyici", WINDOW_AUTOSIZE);
+    imshow("Resim Goruntuleyici", image);
+
+    cout << "Cikmak icin herhangi bir tusa basin..." << endl;
+    waitKey(0);
+
+    destroyAllWindows();
+    return 0;
+}

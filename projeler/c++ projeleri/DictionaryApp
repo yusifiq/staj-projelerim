@@ -1,0 +1,58 @@
+#include <iostream>
+#include <map>
+#include <string>
+
+using namespace std;
+
+int main() {
+    map<string, string> sozluk;
+    int secim;
+
+    while (true) {
+        cout << "\n--- C++ SOZLUK UYGULAMASI ---\n";
+        cout << "1 - Kelime Ekle\n";
+        cout << "2 - Kelime Ara\n";
+        cout << "3 - Tum Kelimeleri Listele\n";
+        cout << "4 - Cikis\n";
+        cout << "Seciminiz: ";
+        cin >> secim;
+        cin.ignore();
+
+        if (secim == 1) {
+            string kelime, anlam;
+            cout << "Kelime: ";
+            getline(cin, kelime);
+            cout << "Anlami: ";
+            getline(cin, anlam);
+
+            sozluk[kelime] = anlam;
+            cout << "Kelime eklendi.\n";
+        }
+        else if (secim == 2) {
+            string aranan;
+            cout << "Aranacak kelime: ";
+            getline(cin, aranan);
+
+            if (sozluk.find(aranan) != sozluk.end()) {
+                cout << "Anlam: " << sozluk[aranan] << endl;
+            } else {
+                cout << "Kelime bulunamadi.\n";
+            }
+        }
+        else if (secim == 3) {
+            cout << "\n--- SOZLUK ---\n";
+            for (const auto& eleman : sozluk) {
+                cout << eleman.first << " : " << eleman.second << endl;
+            }
+        }
+        else if (secim == 4) {
+            cout << "Programdan cikiliyor...\n";
+            break;
+        }
+        else {
+            cout << "Gecersiz secim.\n";
+        }
+    }
+
+    return 0;
+}
