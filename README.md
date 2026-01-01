@@ -1,0 +1,2 @@
+# staj-projelerim
+staj projelerijmm
